@@ -22,7 +22,7 @@ pipeline{
             steps{
                 withSonarQubeEnv('sonar-server') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Chatbot \
-                    -Dsonar.projectKey=Chatbot '''
+                    -Dsonar.projectKey=Chatbot -Dsonar.login=Sonar-token '''
                 }
             }
         }
