@@ -28,15 +28,15 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build -t chatbot ."
-                       sh "docker tag chatbot skm/chatbot:latest "
-                       sh "docker push skm/chatbot:latest "
+                       sh "docker tag chatbot shobanamg/chatbot:latest "
+                       sh "docker push shobanamg/chatbot:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image skm/chatbot:latest > trivy.json"
+                sh "trivy image shobanamg/chatbot:latest > trivy.json"
             }
         }
         stage ("Remove container") {
