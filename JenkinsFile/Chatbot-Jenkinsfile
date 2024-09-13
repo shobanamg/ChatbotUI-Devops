@@ -44,11 +44,5 @@ pipeline{
                 sh 'docker run -d --name chatbot -p 3000:3000 shobanamg/chatbot:latest'
             }
         }
-        stage ("Remove container") {
-            steps{
-                sh "docker stop chatbot | true"
-                sh "docker rm chatbot | true"
-             }
-        }
     }
     }
